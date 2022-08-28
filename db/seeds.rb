@@ -33,5 +33,44 @@ airports = Airport.create([
         city: "Tokyo",
         state: "Tokyo",
         country: "Japan"
+      },
+      {
+        airport_name: "Fake Airport",
+        airport_code: "FAKE",
+        city: "Fakesville",
+        state: "Faker",
+        country: "The United States of Fake"
+      },
+      {
+        airport_name: "JFK Airport",
+        airport_code: "JFK",
+        city: "New York City",
+        state: "New York",
+        country: "USA"
+      },
+      {
+        airport_name: "Newark Airport",
+        airport_code: "EWR",
+        city: "Newark",
+        state: "New Jersey",
+        country: "USA"
       }
       ])
+#the format for datetime is UTC (year, month, day, hour, min, sec)
+flights = Flight.create([
+  {
+    departing_flight_id: 1,
+    arriving_flight_id: 2,
+    datetime: Time.new(2022, 1, 20, 15, 30)
+  },
+  {
+    departing_flight_id: 2,
+    arriving_flight_id: 3,
+    datetime: Time.new(2022, 3, 1, 9, 15)
+  },
+  {
+    departing_flight_id: 4,
+    arriving_flight_id: 1,
+    datetime: Time.new(2024, 12, 22, 1, 45)
+  }
+])
