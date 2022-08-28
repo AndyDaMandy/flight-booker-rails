@@ -24,8 +24,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_28_135636) do
   create_table "flights", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "departing_flight_id"
-    t.integer "arriving_flight_id"
+    t.integer "departing_airport_id"
+    t.integer "arrival_airport_id"
     t.time "datetime"
   end
 
@@ -43,6 +43,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_28_135636) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
-  add_foreign_key "flights", "airports", column: "arriving_flight_id"
-  add_foreign_key "flights", "airports", column: "departing_flight_id"
+  add_foreign_key "flights", "airports", column: "arrival_airport_id"
+  add_foreign_key "flights", "airports", column: "departing_airport_id"
 end
