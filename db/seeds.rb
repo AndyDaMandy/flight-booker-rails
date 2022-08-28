@@ -5,7 +5,8 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-airports = Airport.create([
+Airport.destroy_all
+airports = Airport.create!([
     {   
         airport_name: "Hartsfield-Jackson Atlanta International Airport",
         airport_code: "ATL", 
@@ -56,8 +57,9 @@ airports = Airport.create([
         country: "USA"
       }
       ])
+Flight.destroy_all
 #the format for datetime is UTC (year, month, day, hour, min, sec)
-flights = Flight.create([
+flights = Flight.create!([
   {
     departing_flight_id: 1,
     arriving_flight_id: 2,
