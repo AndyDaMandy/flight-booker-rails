@@ -57,25 +57,30 @@ airports = Airport.create!([
       }
       ])
 #the format for datetime is UTC (year, month, day, hour, min, sec)
+#date format is year, month, date
 flights = Flight.create!([
   {
     departing_airport_id: 1,
     arrival_airport_id: 2,
-    datetime: Time.new(2022, 1, 20, 15, 30)
+    date: Date.new(2022, 1, 20),
+    time: Time.new(2022, 1, 20, 15, 30)
   },
   {
     departing_airport_id: 2,
     arrival_airport_id: 3,
-    datetime: Time.new(2022, 3, 1, 9, 15)
+    date: Date.new(2022, 3, 1),
+    time: Time.new(2022, 3, 1, 9, 15)
   },
   {
     departing_airport_id: 4,
     arrival_airport_id: 1,
-    datetime: Time.new(2024, 12, 22, 1, 45)
+    date: Date.new(2024, 12, 20),
+    time: Time.new(2024, 12, 22, 1, 45)
   },
   {
     departing_airport_id: 3,
     arrival_airport_id: 1,
-    datetime: Time.new(2025, 12, 22, 1, 45)
+    date: Date.new(2024, 12, 22),
+    time: Time.new(2025, 12, 22, 1, 45)
   }
 ])

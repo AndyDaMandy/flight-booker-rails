@@ -26,7 +26,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_28_135636) do
     t.datetime "updated_at", null: false
     t.integer "departing_airport_id"
     t.integer "arrival_airport_id"
-    t.time "datetime"
+    t.date "date"
+    t.time "time"
   end
 
   create_table "users", force: :cascade do |t|
