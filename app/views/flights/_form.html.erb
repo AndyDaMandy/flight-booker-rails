@@ -1,17 +1,15 @@
-<%= form_with model: @flight do |form| %>
-    <%= form_tag(flights_search_path, :method => "get") do %>
+<%= form_tag(flights_search_path, method: :get) do %>
     <div>
-        <%= form.label :departure_airport, "Departure Airport" %>
+        <%= label :departure_airport, "Departure Airport" %>
         <%= select_tag(:departure_airport, options_for_select(@departure_options))%>
-        <%= form.label :arrival_airport, "Arrival Airport" %>
+        <%= label :arrival_airport, "Arrival Airport" %>
         <%= select_tag(:arrival_airport, options_for_select(@arrival_options))%>
-        <%= form.label :departure_date, "Departure Date"%>
+        <%= label :departure_date, "Departure Date"%>
         <%= select_tag(:departure_date, options_for_select(@departure_date))%>
-        <%= form.label :arrival_date, "Arrival Date"%>
+        <%= label :arrival_date, "Arrival Date"%>
         <%= select_tag(:arrival_date, options_for_select(@arrival_date))%>
     </div>
     <div>
-    <%= button_tag "Search for flights", :name => nil %>
+    <%= submit_tag("Search for flights") %>
     </div>
-    <% end %>
 <% end %>

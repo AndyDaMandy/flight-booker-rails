@@ -1,3 +1,7 @@
 <h1>Flights</h1>
 <p>search</p>
 <%= render 'form' %>
+
+ <% @results.each do |result| %>
+    <%= link_to "flight", result %><br>
+ <% end %>
