@@ -62,25 +62,37 @@ flights = Flight.create!([
   {
     departing_airport_id: 1,
     arrival_airport_id: 2,
-    date: Date.new(2022, 1, 20),
-    time: Time.new(2022, 1, 20, 15, 30)
+    departure_date: Date.new(2022, 1, 20),
+    departure_time: Time.new(2022, 1, 20, 10, 00),
+    flight_length: 3.5,
+    arrival_date: Date.new(2022, 1, 20),
+    arrival_time: Time.new(2022, 1, 20, 15, 30)
   },
   {
     departing_airport_id: 2,
     arrival_airport_id: 3,
-    date: Date.new(2022, 3, 1),
-    time: Time.new(2022, 3, 1, 9, 15)
+    departure_date: Date.new(2023, 2, 28),
+    departure_time: Time.new(2023, 2, 28, 6, 00),
+    flight_length: 6,
+    arrival_date: Date.new(2023, 2, 28),
+    arrival_time: Time.new(2023, 2, 28, 11, 00)
   },
   {
     departing_airport_id: 4,
     arrival_airport_id: 1,
-    date: Date.new(2024, 12, 20),
-    time: Time.new(2024, 12, 22, 1, 45)
+    departure_date: Date.new(2024, 12, 20),
+    departure_time: Time.new(2024, 12, 20, 6, 00),
+    flight_length: 8,
+    arrival_date: Date.new(2024, 12, 20),
+    arrival_time: Time.new(2024, 12, 20, 1, 45)
   },
   {
     departing_airport_id: 3,
     arrival_airport_id: 1,
-    date: Date.new(2024, 12, 22),
-    time: Time.new(2025, 12, 22, 1, 45)
+    departure_date: Date.new(2024, 12, 22),
+    departure_time: Time.new(2024, 12, 22, 6, 00),
+    flight_length: 12,
+    arrival_date: Date.new(2024, 12, 22),
+    arrival_time: Time.new(2025, 12, 22, 1, 45)
   }
 ])

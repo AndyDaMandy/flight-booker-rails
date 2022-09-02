@@ -2,7 +2,9 @@ class FlightsController < ApplicationController
     def index
         @flights = Flight.all
         @arrival_options = Flight.all.map{ |f| [ f.arrival_airport.airport_name ]}
-        @departure_options = Flight.all.map{ |f| [ f.departing_airport.airport_name]}
+        @departure_options = Flight.all.map{ |f| [ f.departing_airport.airport_name ]}
+        @departure_date = Flight.all.map{ |f| [ f.date ] }
+        @departure_time = Flight.all.map{ |f| [ f.time ] }
     end
 
     def search
