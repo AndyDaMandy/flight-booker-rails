@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :flights, only: [:index, :search, :show]
-  get '/flights/search', to: 'flight#search'
+  get '/search', to: 'flight#search'
 
   root to: "flights#index"
 
