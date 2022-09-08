@@ -5,6 +5,8 @@ class FlightsController < ApplicationController
         @departure_options = Flight.all.map{ |f| [ f.departing_airport.airport_name ]}
         @departure_date = Flight.all.map{ |f| [ f.departure_date ] }
         @arrival_date = Flight.all.map{ |f| [ f.arrival_date ] }
+
+        @flights = @flights.by_arrival_airport(params[:arrival_airport]) if params[:arrival_airport].present?
     end
 
     def search
