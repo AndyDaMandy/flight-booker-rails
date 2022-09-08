@@ -6,6 +6,8 @@ class Flight < ApplicationRecord
     scope :by_arrival_date, -> (start_date, end_date) { where(arrival_date: start_date..end_date) }
     scope :by_departure_airport, ->  (departure_airport) { where(departing_airport_id: departure_airport) }
     scope :by_arrival_airport, -> (arrival_airport) { where(arrival_airport_id: arrival_airport)}
+
+=begin
     def self.search(search)
         if search
             flight = Flight.find_by(name: search)
@@ -18,4 +20,5 @@ class Flight < ApplicationRecord
             Flight.all
         end
     end
+=end
 end
