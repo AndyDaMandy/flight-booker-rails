@@ -1,1 +1,5 @@
 <h1>Departure <%= @flight.departing_airport.airport_name %></h1>
+
+   <% @flights.each do |result| %>
+        <%= link_to result.departing_airport.airport_name %><br>
+    <% end %>

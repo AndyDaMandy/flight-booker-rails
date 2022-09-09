@@ -1,3 +1,9 @@
 <h1>Flights</h1>
 <p>search</p>
 <%= render 'form' %>
+
+<% @flights.each do |flight| %>
+    <ul>
+        <li><%= link_to flight.departing_airport.airport_name, flight_path(flight) %></li>
+    </ul>
+<% end %>
