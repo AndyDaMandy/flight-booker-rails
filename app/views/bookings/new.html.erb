@@ -1,2 +1,4 @@
 <h1>New Booking</h1>
+<p>Flight Info: <%= "Depature Airport: #{@flight.departing_airport.airport_name} -  Arrival Airport: #{@flight.arrival_airport.airport_name} - Departure Date: #{@flight.departure_date} - Arrival Date: #{@flight.arrival_date}" %></p>
+<p>Passenger Count: <%= params[:passengers]%></p>
 <% render 'form' %>

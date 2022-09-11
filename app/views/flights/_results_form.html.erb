@@ -1,5 +1,6 @@
-<%= form_with url:"/booking/new", method: :post do |form| %>
+<%= form_with model: @booking, url: new_booking_path, method: :get do |form| %>
     <div>
+    <p>Flights:</p>
     <% @flights.each do |flight| %>
     <ul>
         <li>
@@ -8,12 +9,13 @@
         </li>
     </ul>  
     <% end %>
+    <p>Passenger Number:</p>
     <%= form.radio_button :passengers, "1"%>
     <%= form.label :passengers_one, "1" %>
     <%= form.radio_button :passengers, "2"%>  
     <%= form.label :passengers_two, "2" %>
     </div>
     <div>
-    <%= submit_tag "Begin Booking Flight" %>
+    <%= form.submit "Begin Booking Flight" %>
     </div>
 <% end %>
