@@ -1,5 +1,19 @@
-<% @flights.each do |flight| %>
+<%= form_with url:"/booking/new", method: :post do |form| %>
+    <div>
+    <% @flights.each do |flight| %>
     <ul>
-        <li><%= link_to "Depature Airport: #{flight.departing_airport.airport_name} -  Arrival Airport: #{flight.arrival_airport.airport_name} - Departure Date: #{flight.departure_date} - Arrival Date: #{flight.arrival_date}", new_booking_path %></li>
-    </ul>
+        <li>
+            <%= form.radio_button :flight, flight.id %>
+            <%= form.label :flight_info, "Depature Airport: #{flight.departing_airport.airport_name} -  Arrival Airport: #{flight.arrival_airport.airport_name} - Departure Date: #{flight.departure_date} - Arrival Date: #{flight.arrival_date}" %>
+        </li>
+    </ul>  
+    <% end %>
+    <%= form.radio_button :passengers, "1"%>
+    <%= form.label :passengers_one, "1" %>
+    <%= form.radio_button :passengers, "2"%>  
+    <%= form.label :passengers_two, "2" %>
+    </div>
+    <div>
+    <%= submit_tag "Begin Booking Flight" %>
+    </div>
 <% end %>
