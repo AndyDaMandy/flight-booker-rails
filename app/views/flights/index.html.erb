@@ -1,9 +1,4 @@
 <h1>Flights</h1>
 <p>search</p>
 <%= render 'form' %>
-
-<% @flights.each do |flight| %>
-    <ul>
-        <li><%= link_to "Depature Airport: #{flight.departing_airport.airport_name} -  Arrival Airport: #{flight.arrival_airport.airport_name} - Departure Date: #{flight.departure_date} - Arrival Date: #{flight.arrival_date}", flight_path(flight) %></li>
-    </ul>
-<% end %>
+<%= render 'results_form'%>
