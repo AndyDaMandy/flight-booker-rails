@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_28_135636) do
+ActiveRecord::Schema[7.0].define(version: 2022_09_11_140638) do
   create_table "airports", force: :cascade do |t|
     t.string "airport_code"
     t.string "airport_name"
@@ -19,6 +19,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_28_135636) do
     t.string "country"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "flights_id"
+    t.index ["flights_id"], name: "index_bookings_on_flights_id"
   end
 
   create_table "flights", force: :cascade do |t|
@@ -31,6 +38,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_28_135636) do
     t.float "flight_length"
     t.date "departure_date"
     t.time "departure_time"
+  end
+
+  create_table "passengers", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.string "name"
+    t.index ["user_id"], name: "index_passengers_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -47,6 +62,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_28_135636) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
+  add_foreign_key "bookings", "flights", column: "flights_id"
   add_foreign_key "flights", "airports", column: "arrival_airport_id"
   add_foreign_key "flights", "airports", column: "departing_airport_id"
+  add_foreign_key "passengers", "users"
 end

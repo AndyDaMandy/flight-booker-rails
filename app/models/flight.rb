@@ -1,6 +1,7 @@
 class Flight < ApplicationRecord
     belongs_to :departing_airport, class_name: "Airport"
     belongs_to :arrival_airport, class_name: "Airport"
+    has_many :bookings
 
     scope :by_departure_date, -> (departure_date) { where(departure_date: departure_date) }
     scope :by_arrival_date, -> (arrival_date) { where(arrival_date: arrival_date) }
