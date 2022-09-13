@@ -3,10 +3,11 @@
 <p>Passenger Count: <%= params[:passengers]%></p>
 <h2>Booking Form</h2>
 <%= form_with model: @booking do |form| %>
-    <%= form.hidden_field :flight_id, value: @flight.id.to_i %>
+    <%= form.hidden_field :flight_id, value: @flight.id %>
     <%= form.fields_for :passengers do |subform| %>
-        <%= subform.text_field :name %>
-        <%= subform.hidden_field :user_id, value: current_user %>
+        <%= subform.label :name, "Enter your Name:" %><br/>
+        <%= subform.text_field :name %><br/>
+        <%= subform.hidden_field :user_id, value: 1 %>
     <% end %>
     <%= form.submit "Book Flight" %>
 <% end %>

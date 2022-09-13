@@ -19,6 +19,6 @@ class PassengersController < ApplicationController
     private
 
     def passenger_params
-        params.require(:passenger).permit(:user_id, :name)
+        params.require(:passenger).permit(:name, :id)
     end
 end
