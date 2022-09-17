@@ -1,9 +1,9 @@
-<h1>New Booking</h1>
-<p>Flight Info: <%= "Depature Airport: #{@flight.departing_airport.airport_name} -  Arrival Airport: #{@flight.arrival_airport.airport_name} - Departure Date: #{@flight.departure_date} - Arrival Date: #{@flight.arrival_date}" %></p>
-<p>Passenger Count: <%= params[:passengers]%></p>
-<h2>Booking Form</h2>
 <%= form_with model: @booking do |form| %>
     <%= form.hidden_field :flight_id, value: @flight.id %>
+    <h1>New Booking</h1>
+    <p>Flight Info: <%= "Depature Airport: #{@flight.departing_airport.airport_name} -  Arrival Airport: #{@flight.arrival_airport.airport_name} - Departure Date: #{@flight.departure_date} - Arrival Date: #{@flight.arrival_date}" %></p>
+    <p>Passenger Count: <%= params[:passengers]%></p>
+    <h2>Booking Form</h2>
     <%= form.fields_for :passengers do |subform| %>
         <%= subform.label :name, "Enter your Name:" %><br/>
         <%= subform.text_field :name %><br/>

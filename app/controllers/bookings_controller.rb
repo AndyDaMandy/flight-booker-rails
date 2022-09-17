@@ -6,19 +6,16 @@ class BookingsController < ApplicationController
         @booking = Booking.find(params[:id])
     end
     def new
-        @booking = Booking.new
         @flight = Flight.find(params[:flight])
+        @booking = Booking.new
         @booking.passengers.build
     end
     def create
-        bp = booking_params
-        @flight = Flight.find(booking_params[:flight].to_i)
-        booking_params[:flight] = @flight.id.to_i
-        booking_params[:passengers][:user_id] = current_user.id.to_id
-        @booking = Booking.new(booking_params)
+        @flight = Flight.find(booking_params[:flight_id])
+        @booking = @flight.bookings.build(booking_params)
 
         if @booking.save
-            redirect_to booking_path
+            redirect_to booking_path(@booking)
         else
             render :new, status: :unprocessable_entity
         end
@@ -26,7 +23,7 @@ class BookingsController < ApplicationController
 
     private
     def booking_params
-        params.require(:booking).permit(:flight_id, passengers: [:id, :name, :user_id])
+        params.require(:booking).permit(:flight_id, passengers_attributes: [:id, :name, :user_id])
     end
 
 end
