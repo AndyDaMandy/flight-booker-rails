@@ -5,6 +5,6 @@
 
 <% @flights.each do |flight| %>
     <ul>
-        <li><%= link_to "Depature Airport: #{flight.departing_airport.airport_name} -  Arrival Airport: #{flight.arrival_airport.airport_name} - Departure Date: #{flight.departure_date} - Arrival Date: #{flight.arrival_date}", new_booking_path %></li>
+        <li><%= link_to "Depature Airport: #{flight.departing_airport.airport_name} -  Arrival Airport: #{flight.arrival_airport.airport_name} - Departure Date: #{flight.departure_date} - Arrival Date: #{flight.arrival_date}", flight_path(flight) %></li>
     </ul>
 <% end %>

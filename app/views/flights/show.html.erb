@@ -1,5 +1,15 @@
-<h1>Departure <%= @flight.departing_airport.airport_name %></h1>
-
-   <% @flights.each do |result| %>
-        <%= link_to result.departing_airport.airport_name %><br>
-    <% end %>
+<h1>Departure: <%= @flight.departing_airport.airport_name %></h1>
+<h1>Arrival: <%= @flight.arrival_airport.airport_name%></h1>
+<%= form_with model: @booking, url: new_booking_path, method: :get do |form| %>
+            <%= form.hidden_field :flight, value: @flight.id %>
+    <p>Passenger Number:</p>
+    <%= form.radio_button :passengers, "1"%>
+    <%= form.label :passengers_one, "1" %>
+    <%= form.radio_button :passengers, "2"%>  
+    <%= form.label :passengers_two, "2" %>
+    </div>
+    <div>
+    <%= form.submit "Begin Booking Flight" %>
+    </div>
+<% end %>
+<%# This page will eventually link to the booking page. You have a passenger selector, but it shows all the info%>
