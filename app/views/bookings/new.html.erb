@@ -7,7 +7,15 @@
     <%= form.fields_for :passengers do |subform| %>
         <%= subform.label :name, "Enter your Name:" %><br/>
         <%= subform.text_field :name %><br/>
-        <%= subform.hidden_field :user_id, value: 1 %>
+        <% if user_signed_in? %>
+            <%= subform.hidden_field :user_id, value: current_user.id %>
+        <% end %>
     <% end %>
-    <%= form.submit "Book Flight" %>
+    <% if user_signed_in? %>
+        <%= form.submit "Book Flight" %>
+    <% else %>
+        <p>Sign up or register to book!</p>
+        <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+    <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+    <% end %>
 <% end %>
