@@ -15,6 +15,7 @@ class BookingsController < ApplicationController
         @booking = @flight.bookings.build(booking_params)
 
         if @booking.save
+            @passenger = Passenger.find(@booking.id)
             PassengerMailer.with(user: current_user, flight: @flight, booking: @booking, passenger: @passenger).ticket_confirmation_email.deliver_now
             redirect_to booking_path(@booking)
         else
